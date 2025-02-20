@@ -1,0 +1,5 @@
+# NPM/Yarn modules
+/node_modules/
+
+# Configuration
+package-lock.json
