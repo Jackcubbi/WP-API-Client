@@ -50,7 +50,7 @@ export default class Helpers {
     if ("page" == content.type) {
       contentMarkup += `<p class="footer">Last Updated: ${lastModified} by ${author} </p>`;
     }
-    contentMarkup += "</div>";
+
     contentEl.innerHTML = contentMarkup;
 
     return contentEl;
