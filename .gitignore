@@ -1,5 +1,8 @@
 # NPM/Yarn modules
 /node_modules/
 
+# Images
+images/
+
 # Configuration
 package-lock.json

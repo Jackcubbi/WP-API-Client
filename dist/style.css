@@ -285,8 +285,14 @@ h6 {
 }
 
 h1.site-title,
+p.site-title,
+h2.entry-title,
+h3.entry-title {
+  font-family: Phudu, Helvetica, sans-serif;
+}
+
+h1.site-title,
 p.site-title {
-  font-family: Pacifico, Helvetica, sans-serif;
   font-size: 3rem;
   margin-bottom: 10px;
 }
@@ -300,10 +306,13 @@ h2.add-new-post {
 }
 
 h2.entry-title {
-  font-family: Montserrat, Helvetica, serif;
-  font-size: 1.5rem;
+  font-size: 2.3rem;
   margin: 10px 0 20px;
-  text-align: left;
+}
+
+h3.entry-title {
+  font-size: 1.8rem;
+  margin: 7px 0 15px;
 }
 
 h1.site-title a,
