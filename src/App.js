@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import Menu from "./components/Menu/index";
 
 export default class App {
   /**
@@ -7,6 +8,7 @@ export default class App {
    */
   static init() {
     Header.render();
+    Menu.render();
   }
 }
 
