@@ -89,25 +89,22 @@ export default class Helpers {
   /*
    *getHash - Get the hash from the url
    */
-  static makeHashFromLink(content, linkType) {
-    let linkArray = content.link.split("/"),
-      type = content.type || linkType;
-
-    switch (type) {
+  static makeHashFromLink(content) {
+    switch (content.type) {
       case "post":
-        return "#/post/" + linkArray[3];
+        return "#/post/" + content.slug;
         break;
       case "category":
         return "#/category/" + content.slug;
         break;
       case "tag":
-        return "#/tag/" + linkArray[4];
+        return "#/tag/" + content.slug;
         break;
       case "user":
         return "#/user/" + content.slug;
         break;
       default:
-        return "#/" + linkArray[3];
+        return "#/" + content.slug;
     }
   }
 
