@@ -10,4 +10,17 @@ export default class Router {
     Router.loadPage();
     Router.listenPageChange();
   }
+
+  /*
+   * Get slug from the URL
+   */
+  static getSlug() {
+    let slug = window.location.hash;
+
+    if ("" === slug) {
+      return null;
+    } else {
+      return slug.slice(1, 2);
+    }
+  }
 }
