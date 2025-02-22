@@ -30,4 +30,13 @@ export default class Router {
   static listenPageChange() {
     window.addEventListener("hashchange", Router.loadPage, false);
   }
+
+  /*
+   * Page based on url
+   */
+  static loadPage() {
+    let slug = Router.getSlug() || "home";
+    if ("/" == slug) slug = "/home";
+    console.log(slug);
+  }
 }
