@@ -1,4 +1,3 @@
-import config from "./config";
 import Helpers from "./Helpers";
 
 export default class Router {
@@ -6,7 +5,7 @@ export default class Router {
    * Init the routers
    */
   static init() {
-    Helpers.clearPage();
+    Helpers.clearContent();
     Router.loadPage();
     Router.listenPageChange();
   }
@@ -20,7 +19,7 @@ export default class Router {
     if ("" === slug) {
       return null;
     } else {
-      return slug.slice(1, 2);
+      return slug.slice(1);
     }
   }
 
