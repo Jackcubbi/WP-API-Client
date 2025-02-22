@@ -23,4 +23,11 @@ export default class Router {
       return slug.slice(1, 2);
     }
   }
+
+  /*
+   * Function for URL change
+   */
+  static listenPageChange() {
+    window.addEventListener("hashchange", Router.loadPage, false);
+  }
 }
