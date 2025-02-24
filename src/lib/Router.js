@@ -6,7 +6,7 @@ export default class Router {
    * Init the routers
    */
   static init() {
-    Helpers.clearContent();
+    Helpers.clearPage();
     Router.loadPage();
     Router.listenPageChange();
   }
