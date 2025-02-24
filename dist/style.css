@@ -1093,15 +1093,30 @@ object {
 /*--------------------------------------------------------------
 ## Galleries
 --------------------------------------------------------------*/
-.gallery {
-  margin-bottom: 1.5em;
+ul.gallery {
+  margin: 0;
+  padding: 0;
 }
 
-.gallery-item {
+ul.gallery li {
   display: inline-block;
   text-align: center;
   vertical-align: top;
-  width: 100%;
+  width: 28%;
+  margin: 2%;
+}
+ul.gallery li .caption {
+  font-size: 0.9rem;
+  color: #888;
+  width: 80%;
+  margin: 0 auto;
+}
+ul.gallery li .caption p {
+  margin: 1rem 0 0.5rem;
+}
+ul.gallery li .caption .date {
+  font-size: 0.8rem;
+  color: #999;
 }
 
 .gallery-columns-2 .gallery-item {
@@ -1143,5 +1158,15 @@ object {
 @media (max-width: 960px) {
   #page {
     margin: 20px;
+  }
+}
+
+@media (max-width: 460px) {
+  .entry-content img.feature {
+    margin: 0 auto;
+    float: none;
+    width: 50%;
+    clear: both;
+    display: block;
   }
 }
