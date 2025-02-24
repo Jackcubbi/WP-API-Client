@@ -100,6 +100,17 @@ export default class Helpers {
     config.articleContainer.appendChild(articleEl);
   }
 
+  /**
+   * renderHeader - Renders an HTML header on the Page
+   */
+  static renderHeader(title, titleTag = "h1") {
+    const titleEl = document.createElement(titleTag),
+      titleText = document.createTextNode(title);
+
+    titleEl.appendChild(titleText);
+    config.articleContainer.appendChild(titleEl);
+  }
+
   /*
    *getHash - Get the hash from the url
    */
