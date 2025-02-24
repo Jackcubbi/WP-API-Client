@@ -1016,6 +1016,24 @@ footer.entry-footer {
   display: block;
 }
 
+.comment {
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+.comment blockquote {
+  border-left: 5px #ededed solid;
+  margin-left: 0;
+  padding: 0 0 0 10px;
+}
+.comment img {
+  position: absolute;
+  left: -10px;
+}
+.comment .author {
+  padding-left: 20px;
+  position: relative;
+}
+
 /*--------------------------------------------------------------
 # Infinite scroll
 --------------------------------------------------------------*/
