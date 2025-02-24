@@ -86,7 +86,7 @@ export default class Helpers {
     config.siteDescription.innerHTML = description;
   }
 
-  /**
+  /*
    * renderHeader - Renders title to Page
    */
   static renderHeader(title, tag = "h1") {
@@ -110,7 +110,7 @@ export default class Helpers {
     config.articleContainer.appendChild(articleEl);
   }
 
-  /**
+  /*
    * renderHeader - Renders an HTML header on the Page
    */
   static renderHeader(title, titleTag = "h1") {
@@ -122,7 +122,7 @@ export default class Helpers {
   }
 
   /*
-   *getHash - Get the hash from the url
+   * getHash - Get the hash from the url
    */
   static makeHashFromLink(content, type = content.type) {
     switch (type) {
@@ -149,12 +149,12 @@ export default class Helpers {
   static formatDate(date) {
     let newDate = new Date(date),
       day = newDate.getDay(),
-      month = newDate.getDate(),
-      year = newDate.getFullYear(),
+      month = newDate.getMonth(),
+      year = newDate.getYear(),
       hours = newDate.getHours(),
       min = newDate.getMinutes();
 
-    return day + "/" + month + "/" + year + "/" + hours + ":" + min;
+    return day + "/" + month + "/" + year + "@" + hours + ":" + min;
   }
 
   /**
@@ -170,6 +170,6 @@ export default class Helpers {
    */
   static clearContent() {
     config.body.className = "";
-    config.articleContainer.innerHtml = "";
+    config.articleContainer.innerHTML = "";
   }
 }
