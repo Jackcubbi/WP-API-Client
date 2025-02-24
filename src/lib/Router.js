@@ -1,4 +1,5 @@
 import Helpers from "./Helpers";
+import Page from "../components/Page";
 
 export default class Router {
   /*
@@ -36,6 +37,8 @@ export default class Router {
   static loadPage() {
     let slug = Router.getSlug() || "home";
     if ("/" == slug) slug = "/home";
-    console.log(slug);
+
+    Helpers.clearContent();
+    Page.render(slug);
   }
 }
