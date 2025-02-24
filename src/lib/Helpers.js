@@ -87,6 +87,20 @@ export default class Helpers {
   }
 
   /*
+   * renderContent - Renders content to Page
+   */
+  static renderContent(content, titleTag = "h1", addLink = false) {
+    const articleEl = document.createElement("article"),
+      titleEl = Helpers.getTitleMarkup(content, titleTag, addLink),
+      contentEl = Helpers.getContentMarkup(content);
+
+    articleEl.classList.add(content.type);
+    articleEl.appendChild(titleEl);
+    articleEl.appendChild(contentEl);
+    config.articleContainer.appendChild(articleEl);
+  }
+
+  /*
    *getHash - Get the hash from the url
    */
   static makeHashFromLink(content) {
