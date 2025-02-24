@@ -136,8 +136,16 @@ export default class Helpers {
     return day + "/" + month + "/" + year + "/" + hours + ":" + min;
   }
 
+  /**
+   * clearPage - Clear pages from Page
+   */
+  static clearPage() {
+    config.sidebar.innerHTML = "";
+    Helpers.clearContent();
+  }
+
   /*
-   *ClearContent - Clear main content from Page
+   * clearContent - Clear main content from Page
    */
   static clearContent() {
     config.body.className = "";
