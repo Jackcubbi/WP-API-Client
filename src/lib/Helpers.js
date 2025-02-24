@@ -7,7 +7,7 @@ export default class Helpers {
   static getTitleMarkup(content, titleTag = "h1", addLink = false) {
     const titleEl = document.createElement(titleTag),
       linkEl = document.createElement("a"),
-      title = document.createElement(content.title.rendered);
+      title = document.createTextNode(content.title.rendered);
 
     titleEl.classList.add("entry-title");
 
@@ -16,7 +16,7 @@ export default class Helpers {
       linkEl.href = Helpers.makeHashFromLink(content);
       titleEl.appendChild(linkEl);
     } else {
-      title.appendChild(title);
+      titleEl.appendChild(title);
     }
 
     titleEl.appendChild(linkEl);
@@ -34,8 +34,8 @@ export default class Helpers {
       author = content._embedded.author[0].name,
       featuredImg = "";
 
-    if (content._embedded["wp:featuremedia"]) {
-      featuredImg = content._embedded["wp:featuremedia"][0].source_url;
+    if (content._embedded["wp:featuredmedia"]) {
+      featuredImg = content._embedded["wp:featuredmedia"][0].source_url;
     }
 
     contentEl.classList.add("entry-content");
@@ -81,9 +81,19 @@ export default class Helpers {
   /*
    *renderHeader - Renders title to Page
    */
+  static renderSiteInfo(title, description) {
+    config.siteTitle.innerHTML = title;
+    config.siteDescription.innerHTML = description;
+  }
+
+  /**
+   * renderHeader - Renders title to Page
+   */
   static renderHeader(title, tag = "h1") {
     let titleEl = document.createElement(tag);
     titleEl.innerHTML = title;
+
+    config.articleContainer.appendChild(titleEl);
   }
 
   /*
@@ -101,16 +111,6 @@ export default class Helpers {
   }
 
   /**
-   * renderHeader - Renders title to Page
-   */
-  static renderHeader(title, tag = "h1") {
-    let titleEl = document.createElement(tag);
-    titleEl.innerHTML = title;
-
-    config.articleContainer.appendChild(titleEl);
-  }
-
-  /**
    * renderHeader - Renders an HTML header on the Page
    */
   static renderHeader(title, titleTag = "h1") {
@@ -124,8 +124,8 @@ export default class Helpers {
   /*
    *getHash - Get the hash from the url
    */
-  static makeHashFromLink(content) {
-    switch (content.type) {
+  static makeHashFromLink(content, type = content.type) {
+    switch (type) {
       case "post":
         return "#/post/" + content.slug;
         break;
