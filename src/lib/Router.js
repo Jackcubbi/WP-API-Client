@@ -38,7 +38,7 @@ export default class Router {
     let slug = Router.getSlug() || "home";
     if ("/" == slug) slug = "/home";
 
-    Helpers.clearContent();
+    Helpers.clearPage();
     Page.render(slug);
   }
 }
