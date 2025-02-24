@@ -101,6 +101,16 @@ export default class Helpers {
   }
 
   /**
+   * renderHeader - Renders title to Page
+   */
+  static renderHeader(title, tag = "h1") {
+    let titleEl = document.createElement(tag);
+    titleEl.innerHTML = title;
+
+    config.articleContainer.appendChild(titleEl);
+  }
+
+  /**
    * renderHeader - Renders an HTML header on the Page
    */
   static renderHeader(title, titleTag = "h1") {
