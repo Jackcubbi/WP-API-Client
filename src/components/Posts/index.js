@@ -9,6 +9,7 @@ export default class Posts {
     config.wp
       .posts()
       .embed()
+      //.perPage(3)
       .then((posts) => {
         Helpers.renderHeader("Blog", "h1");
         let renderedPosts = posts.map((content) => {

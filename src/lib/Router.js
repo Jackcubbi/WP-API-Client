@@ -1,6 +1,7 @@
 import Helpers from "./Helpers";
 import Page from "../components/Page";
-import Posts from "../components/Posts/index";
+import Posts from "../components/Posts";
+import Post from "../components/Post";
 
 export default class Router {
   /*
@@ -43,6 +44,9 @@ export default class Router {
     if ("/blog" == slug) {
       Helpers.clearContent();
       Posts.render();
+    } else if ("/post" == slug.substring(0, 5)) {
+      Helpers.clearContent();
+      Post.render(slug.substring(6));
     } else {
       Helpers.clearPage();
       Page.render(slug);
