@@ -1,5 +1,6 @@
 import Helpers from "./Helpers";
 import Page from "../components/Page";
+import Posts from "../components/Posts/index";
 
 export default class Router {
   /*
@@ -36,9 +37,15 @@ export default class Router {
    */
   static loadPage() {
     let slug = Router.getSlug() || "home";
-    if ("/" == slug) slug = "/home";
 
-    Helpers.clearPage();
-    Page.render(slug);
+    if ("/" == slug) slug = "home";
+
+    if ("/blog" == slug) {
+      Helpers.clearContent();
+      Posts.render();
+    } else {
+      Helpers.clearPage();
+      Page.render(slug);
+    }
   }
 }
