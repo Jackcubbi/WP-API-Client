@@ -266,6 +266,11 @@ th {
   display: flex;
 }
 
+div#content {
+  max-width: 1200px;
+  width: 100%;
+}
+
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
@@ -897,11 +902,13 @@ footer.site-footer {
   width: 65%;
   float: left;
 }
+
 .blog #secondary {
   width: 30%;
   float: right;
   padding: 10px;
 }
+
 .widget ul {
   margin: 0;
   padding-left: 20px;
