@@ -1,6 +1,5 @@
 import config from "../../lib/config";
 import Helpers from "../../lib/Helpers";
-import Comments from "../Comments/index";
 
 export default class Posts {
   /**
@@ -15,7 +14,6 @@ export default class Posts {
         Helpers.renderHeader("Blog", "h1");
         let renderedPosts = posts.map((content) => {
           Helpers.renderContent(content, "h2", true);
-          Comments.render(post[0].id);
         });
       })
       .catch((err) => {
