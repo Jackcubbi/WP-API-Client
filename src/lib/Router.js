@@ -1,7 +1,10 @@
+import config from "./config";
 import Helpers from "./Helpers";
 import Page from "../components/Page";
 import Posts from "../components/Posts";
 import Post from "../components/Post";
+import CategoryWidget from "../components/Widgets/Category/index";
+import Category from "../components/Categories/index";
 
 export default class Router {
   /*
@@ -43,10 +46,22 @@ export default class Router {
 
     if ("/blog" == slug) {
       Helpers.clearContent();
+      config.body.className = "";
+      config.body.classList.add("blog");
       Posts.render();
+      CategoryWidget.render();
     } else if ("/post" == slug.substring(0, 5)) {
       Helpers.clearContent();
+      config.body.className = "";
+      config.body.classList.add("blog");
       Post.render(slug.substring(6));
+      CategoryWidget.render();
+    } else if ("/category" == slug.substring(0, 9)) {
+      let catSlug = slug.substring(10);
+      Helpers.clearContent();
+      config.body.classList.add("blog");
+      Category.render(catSlug);
+      CategoryWidget.render();
     } else {
       Helpers.clearPage();
       Page.render(slug);
