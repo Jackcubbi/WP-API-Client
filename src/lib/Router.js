@@ -42,33 +42,36 @@ export default class Router {
    */
   static loadPage() {
     let slug = Router.getSlug() || "home";
+    if (slug === "/") slug = "home";
 
-    if ("/" == slug) slug = "home";
+    const isSlugMatch = (prefix) => slug.startsWith(prefix);
+    const renderBlogPage = () => {
+      Helpers.clearContent();
+      config.body.className = "blog";
+      CategoryWidget.render();
+      TagWidget.render();
+    };
 
-    if ("/blog" == slug) {
-      Helpers.clearContent();
-      config.body.className = "";
-      config.body.classList.add("blog");
-      Posts.render();
-      CategoryWidget.render();
-      TagWidget.render();
-    } else if ("/post" == slug.substring(0, 5)) {
-      Helpers.clearContent();
-      config.body.className = "";
-      config.body.classList.add("blog");
-      Post.render(slug.substring(6));
-      CategoryWidget.render();
-      TagWidget.render();
-    } else if ("/category" == slug.substring(0, 9)) {
-      let catSlug = slug.substring(10);
-      Helpers.clearContent();
-      config.body.classList.add("blog");
-      Category.render(catSlug);
-      CategoryWidget.render();
-      TagWidget.render();
-    } else {
-      Helpers.clearPage();
-      Page.render(slug);
+    switch (true) {
+      case slug === "home":
+        Helpers.clearPage();
+        Page.render("home");
+        break;
+      case slug === "/blog":
+        renderBlogPage();
+        Posts.render();
+        break;
+      case isSlugMatch("/post"):
+        renderBlogPage();
+        Post.render(slug.substring(6));
+        break;
+      case isSlugMatch("/category"):
+        renderBlogPage();
+        Category.render(slug.substring(10));
+        break;
+      default:
+        Helpers.clearPage();
+        Page.render(slug);
     }
   }
 }
