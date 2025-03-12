@@ -1,5 +1,5 @@
 import config from "../../../lib/config";
-import Category from "./Tag";
+import Tag from "./Tag";
 
 export default class Tags {
   /*
