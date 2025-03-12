@@ -6,19 +6,21 @@ export default class Categories {
   /**
    * Render posts based on the category
    */
-  static render(catSlug = "") {
-    config.wp
-      .categories()
-      .embed()
-      .slug(catSlug)
-      .then((categories) => {
-        categories.forEach((cat) => {
-          Helpers.renderHeader(`Category: ${cat.name} [${cat.count}]`);
-          Category.render(cat.id);
-        });
-      })
-      .catch((err) => {
-        console.log("Error: " + err);
+  static async render(catSlug = "") {
+    try {
+      const categories = await config.wp.categories().embed().slug(catSlug);
+
+      if (!categories.length) {
+        console.warn(`No categories found for slug: ${catSlug}`);
+        return;
+      }
+
+      categories.forEach(({ id, name, count }) => {
+        Helpers.renderHeader(`Category: ${name} [${count}]`);
+        Category.render(id);
       });
+    } catch (err) {
+      console.error("Error fetching categories:", err);
+    }
   }
 }
