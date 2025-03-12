@@ -24,7 +24,7 @@ export default class Tags {
 
         sidebar.appendChild(widget);
 
-        categories.forEach((tag) => {
+        tags.forEach((tag) => {
           Tag.render(tag);
         });
       })
