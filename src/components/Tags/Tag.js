@@ -1,7 +1,7 @@
 import config from "../../lib/config";
 import Helpers from "../../lib/Helpers";
 
-export default class Category {
+export default class Tag {
   /*
    * render a posts from tag ID
    */
