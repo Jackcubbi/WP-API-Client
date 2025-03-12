@@ -3,13 +3,13 @@ import Helpers from "../../lib/Helpers";
 
 export default class Tag {
   /*
-   * render a posts from tag ID
+   * render a tags from tag ID
    */
-  static render(catID = "") {
+  static render(slug = "") {
     config.wp
       .posts()
       .embed()
-      .categories(catID)
+      .tags(slug)
       .then((posts) => {
         posts.forEach((post) => {
           Helpers.renderContent(post, "h2", true);
