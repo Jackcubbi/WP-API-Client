@@ -72,7 +72,7 @@ export default class Router {
         break;
       case isSlugMatch("/tag"):
         renderBlogPage();
-        Category.render(slug.substring(5));
+        Tag.render(slug.substring(5));
         break;
       default:
         Helpers.clearPage();
