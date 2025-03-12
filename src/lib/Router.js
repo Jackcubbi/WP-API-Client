@@ -70,6 +70,10 @@ export default class Router {
         renderBlogPage();
         Category.render(slug.substring(10));
         break;
+      case isSlugMatch("/tag"):
+        renderBlogPage();
+        Category.render(slug.substring(5));
+        break;
       default:
         Helpers.clearPage();
         Page.render(slug);
