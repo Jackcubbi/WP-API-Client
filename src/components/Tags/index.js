@@ -4,7 +4,7 @@ import Tag from "./Tag";
 
 export default class Tags {
   /**
-   * Render posts on the post
+   * Render posts based on the Tag
    */
   static async render(tagSlug = "") {
     try {
