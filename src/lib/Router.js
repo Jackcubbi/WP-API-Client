@@ -10,6 +10,7 @@ import Tag from "../components/Tags/index";
 import Gallery from "../components/Gallery/index";
 import Users from "../components/Users/index";
 import User from "../components/Users/User";
+import userPosts from "../components/Users/userPosts";
 
 export default class Router {
   /*
@@ -85,6 +86,7 @@ export default class Router {
       Helpers.clearPage();
       config.body.className = "";
       User.render(userSlug, "h1", false);
+      userPosts.render(userSlug);
     } else {
       Helpers.clearPage();
       Page.render(slug);
