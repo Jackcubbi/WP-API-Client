@@ -8,6 +8,8 @@ import TagWidget from "../components/Widgets/Tag/index";
 import Category from "../components/Categories/index";
 import Tag from "../components/Tags/index";
 import Gallery from "../components/Gallery/index";
+import Users from "../components/Users/index";
+import User from "../components/Users/User";
 
 export default class Router {
   /*
@@ -74,6 +76,15 @@ export default class Router {
       config.body.className = "media";
       Page.render(slug);
       Gallery.render();
+    } else if (isSlugMatch("/users")) {
+      Helpers.clearPage();
+      config.body.classList.add("Users");
+      Users.render();
+    } else if (isSlugMatch("/user")) {
+      const userSlug = slug.split("/").pop();
+      Helpers.clearPage();
+      config.body.className = "";
+      User.render();
     } else {
       Helpers.clearPage();
       Page.render(slug);
