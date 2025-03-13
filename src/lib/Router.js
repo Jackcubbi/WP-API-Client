@@ -7,6 +7,7 @@ import CategoryWidget from "../components/Widgets/Category/index";
 import TagWidget from "../components/Widgets/Tag/index";
 import Category from "../components/Categories/index";
 import Tag from "../components/Tags/index";
+import Media from "../components/Gallery/index";
 
 export default class Router {
   /*
@@ -53,30 +54,29 @@ export default class Router {
       TagWidget.render();
     };
 
-    switch (true) {
-      case slug === "home":
-        Helpers.clearPage();
-        Page.render("home");
-        break;
-      case slug === "/blog":
-        renderBlogPage();
-        Posts.render();
-        break;
-      case isSlugMatch("/post"):
-        renderBlogPage();
-        Post.render(slug.substring(6));
-        break;
-      case isSlugMatch("/category"):
-        renderBlogPage();
-        Category.render(slug.substring(10));
-        break;
-      case isSlugMatch("/tag"):
-        renderBlogPage();
-        Tag.render(slug.substring(5));
-        break;
-      default:
-        Helpers.clearPage();
-        Page.render(slug);
+    if (slug === "home") {
+      Helpers.clearPage();
+      Page.render("home");
+    } else if (slug === "/blog") {
+      renderBlogPage();
+      Posts.render();
+    } else if (isSlugMatch("/post")) {
+      renderBlogPage();
+      Post.render(slug.substring(6));
+    } else if (isSlugMatch("/category")) {
+      renderBlogPage();
+      Category.render(slug.substring(10));
+    } else if (isSlugMatch("/tag")) {
+      renderBlogPage();
+      Tag.render(slug.substring(5));
+    } else if (isSlugMatch("/media")) {
+      Helpers.clearContent();
+      config.body.className = "media";
+      Page.render(slug);
+      Gallery.render();
+    } else {
+      Helpers.clearPage();
+      Page.render(slug);
     }
   }
 }
