@@ -42,6 +42,7 @@ export default class Helpers {
     if ("post" == content.type) {
       contentMarkup += `<p class="meta">Author: ${author} | ${date} </p>`;
     }
+
     if (featuredImg) {
       contentMarkup += `<img class="feature" src=" ${featuredImg}">`;
     }

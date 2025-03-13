@@ -12,7 +12,7 @@ export default class Posts {
       //.perPage(3)
       .then((posts) => {
         Helpers.renderHeader("Blog", "h1");
-        let renderedPosts = posts.map((content) => {
+        posts.forEach((content) => {
           Helpers.renderContent(content, "h2", true);
         });
       })
