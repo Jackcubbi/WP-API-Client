@@ -11,7 +11,7 @@ export default class UserList {
       .users()
       .then((users) => {
         Helpers.renderHeader("Users", "h1");
-        let renderedUsers = Users.map((user) => {
+        let renderedUsers = users.map((user) => {
           User.render(user.slug, "h2", true);
         });
       })
