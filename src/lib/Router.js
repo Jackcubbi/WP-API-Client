@@ -7,7 +7,7 @@ import CategoryWidget from "../components/Widgets/Category/index";
 import TagWidget from "../components/Widgets/Tag/index";
 import Category from "../components/Categories/index";
 import Tag from "../components/Tags/index";
-import Media from "../components/Gallery/index";
+import Gallery from "../components/Gallery/index";
 
 export default class Router {
   /*
