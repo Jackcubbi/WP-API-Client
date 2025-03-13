@@ -84,7 +84,7 @@ export default class Router {
       const userSlug = slug.split("/").pop();
       Helpers.clearPage();
       config.body.className = "";
-      User.render();
+      User.render(userSlug, "h1", false);
     } else {
       Helpers.clearPage();
       Page.render(slug);
