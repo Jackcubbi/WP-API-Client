@@ -27,9 +27,9 @@ export default class User {
                   name: user.name,
                 },
               ],
-              "wp: featuremedia": [
+              "wp:featuremedia": [
                 {
-                  suorce_url: user.avatar_urls["96"],
+                  source_url: user.avatar_urls["96"],
                 },
               ],
             },

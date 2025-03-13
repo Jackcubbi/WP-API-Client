@@ -266,6 +266,10 @@ th {
   display: flex;
 }
 
+figure.wp-block-media-text__media {
+  display: none;
+}
+
 div#content {
   max-width: 1200px;
   width: 100%;
